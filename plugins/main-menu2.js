@@ -57,7 +57,7 @@ let str = `
 
 ┏━━🤖 _BOT STATUS:_🤖━━┓
 ┃ 🤡  *Bot Name:* ${botname} 
-┃ 💻  *Platform:* Linux 
+┃ 💻  *Platform:* Howrah jn 
 ┃ 📣  *Prefix:* ${usedPrefix} 
 ┃ 🕓  *Uptime:* ${uptime}
 ┃ 💌  *Database:* ${rtotalreg} of ${totaluser} 

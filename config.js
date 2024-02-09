@@ -50,9 +50,7 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.botname = '✧˚·̩̩̥͙˚̩̥̩̥·̩̩̥͙✧·̩̩̥͙˚̩̥̩̥˚·̩̩̥͙✧ 𝒮𝒶𝓂𝓇𝒶𝓉 𝒳𝒟 ℬℴ𝓉 ✧˚·̩̩̥͙˚̩̥̩̥·̩̩̥͙✧·̩̩̥͙˚̩̥̩̥˚·̩̩̥͙✧
-
-'
+global.botname = '˜”°•✩•°”˜ 𝚂𝚊𝚖𝚛𝚊𝚝 𝚇𝙳 𝙱𝚘𝚝 ˜”°•✩•°”˜'
 global.premium = 'true'
 global.packname = 'XD┃ᴮᴼᵀ' 
 global.author = '@Samriddho' 

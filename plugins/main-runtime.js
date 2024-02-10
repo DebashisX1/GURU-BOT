@@ -29,7 +29,7 @@ await displayLoadingScreen(conn, m.chat)
       title: "ᴛʜᴇ ɢᴜʀᴜ-ʙᴏᴛ",
       body: "R U N T I M E",
       thumbnailUrl: pp,
-      sourceUrl: 'https://guruapi.tech',
+      sourceUrl: 'https://wa.link/v6gh6b',
       mediaType: 1,
       renderLargerThumbnail: false
       }}})

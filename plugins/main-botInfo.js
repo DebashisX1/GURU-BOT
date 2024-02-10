@@ -56,15 +56,15 @@ let infobt = `
 ▢ *${chats.length}* Total Chats
 
 *≡ OWNER*
-  *GURU*
+  *SAMRIDHYA SANTRA*
 ▢ Instagram :
-  • https://instagram.com/asli_guru69
+  • https://instagram.com/SantraSamridhya
 ▢ GitHub :
-  • https://github.com/Guru322
+  • https://github.com/Samridhya01 
 ▢ Telegram : 
-  • t.me/i_want_to_be_isekaied (GURU) 
-▢ YouTube : 
-  • https://youtube.com/@Asliguru
+  • https://t.me/Samrat_Tbot (Samrat) 
+▢ BuyMeACoffe: 
+  • https://www.buymeacoffee.com/samridhya
 
  *≡ S E R V E R*
 *🛑 RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}

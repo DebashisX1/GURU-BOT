@@ -9,7 +9,7 @@ m.reply( `Jay Jay Sree Ram 🚩`)
 conn.sendFile(m.chat, av, 'audio.mp3', null, m, true, { type: 'audioMessage', ptt: true })
 } 
 
-handler.customPrefix = /^(Jay sri ram|Ram Ram|Hunuman|Jay sree ram|ram)$/i
+handler.customPrefix = /^(Jay sri ram|Ram Ram|Hunuman|Jay sree ram|ram|raja ram|Jai shree ram)$/i
 handler.command = new RegExp
 
 export default handler

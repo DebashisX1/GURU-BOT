@@ -50,7 +50,7 @@ export async function before(m, { isAdmin, isBotAdmin }) {
 
         var caption = `*[ TOXIC STRENGTH ]*\n\n${toxicityLevels[toxicityIndex]}\n${toxicityVerdict[toxicityIndex]}\n`
         
-        await this.reply(m.chat, `*Bad Words Detected!*\n ${caption} ${isBotAdmin ? '' : '\n\n_Bot is not admin_'}`, m)
+        await this.reply(m.chat, `*Bhai Bola Jaba na ❌️*\n ${caption} ${isBotAdmin ? '' : '\n\n_Bot is not admin_'}`, m)
 
         if (isBotAdmin) {
             // Remove the participant from the group

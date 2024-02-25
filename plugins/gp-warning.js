@@ -9,7 +9,7 @@ let handler = async (m, { conn, text, args, groupMetadata, usedPrefix, command }
         let name = conn.getName(m.sender)
         let warn = global.db.data.users[who].warn
         if (warn < war) {
-            global.db.data.users[who].warn += 1
+            global.db.data.users[who].warn += 0
             m.reply(`
 ⚠️ *Warned User* ⚠️
 

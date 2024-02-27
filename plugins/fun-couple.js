@@ -2,7 +2,7 @@ let toM = a => '@' + a.split('@')[0];
 
 function getRandomPercentage() {
     // Generate a random percentage between 1 and 100
-    return Math.floor(Math.random() * 100) + 1;
+    return Math.floor(Math.random() * 110) + 1;
 }
 
 function handler(m, { groupMetadata }) {
@@ -33,7 +33,7 @@ function handler(m, { groupMetadata }) {
         message = `Congratulations, your ${percentage}% 💖🍻`;
     }
 
-    m.reply(`✯────────────────────✯\n${toM(b)}   ❤️   ${toM(c)}\n${message}\n> Line by ${toM(a)} 😁`, null, {
+    m.reply(`✯────────────────────✯\n${toM(b)}   ❤️   ${toM(c)}\n*yours ${percentage}%*\n${message}\n> Line by ${toM(a)} 😁`, null, {
         mentions: [a, b, c]
     });
 }

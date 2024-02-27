@@ -1,10 +1,10 @@
 import axios from 'axios'
 let handler = async(m, { conn, usedPrefix, command }) => {
-let res = (await axios.get(`https://raw.githubusercontent.com/Guru322/api/Guru/BOT-JSON/Messi.json`)).data  
+let res = (await axios.get(`https://shizoapi.onrender.com/api/devotional/ganpati?apikey=shizo`)).data  
 let url = await res[Math.floor(res.length * Math.random())]
 conn.sendFile(m.chat, url, 'error.jpg', `*Messi*`, m)} 
 //conn.sendButton(m.chat, "*Messi*", author, url, [['⚽ NEXT ⚽', `${usedPrefix + command}`]], m)}
-handler.help = ['messi']
+handler.help = ['ganash']
 handler.tags = ['img']
-handler.command = /^(messi)$/i
+handler.command = /^(ganash)$/i
 export default handler

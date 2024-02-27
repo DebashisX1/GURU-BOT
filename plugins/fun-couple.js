@@ -13,10 +13,15 @@ function handler(m, { groupMetadata }) {
         b = ps[Math.floor(Math.random() * ps.length)]; // Select a random participant
     } while (b === a);
 
+    let c;
+    do {
+        c = ps[Math.floor(Math.random() * ps.length)]; // Select another random participant
+    } while (c === a || c === b); // Ensure it's different from both a and b
+
     const percentage = getRandomPercentage();
 
-    m.reply(`${toM(b)} ❤️ ${toM(b)}\nCongratulations, your ${percentage}% 💖🍻`, null, {
-        mentions: [a, b]
+    m.reply(`${toM(b)} ❤️ ${toM(c)}\nCongratulations, your ${percentage}% 💖🍻\nLine by ${toM(a)} 😁`, null, {
+        mentions: [a, b, c]
     });
 }
 

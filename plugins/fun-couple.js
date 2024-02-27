@@ -20,7 +20,7 @@ function handler(m, { groupMetadata }) {
 
     const percentage = getRandomPercentage();
 
-    m.reply(`${toM(b)} ❤️ ${toM(c)}\nCongratulations, your ${percentage}% 💖🍻\nLine by ${toM(a)} 😁`, null, {
+    m.reply(`✯────────────────────✯\n${toM(b)}   ❤️   ${toM(c)}\nCongratulations, your ${percentage}% 💖🍻\n> Line by ${toM(a)} 😁`, null, {
         mentions: [a, b, c]
     });
 }

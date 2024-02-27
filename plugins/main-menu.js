@@ -88,6 +88,7 @@ import {
   ◈ .pickupline
   ◈ .question
   ◈ .shayari
+  ◈ .Couple
   ◈ .ship
   ◈ .yomamajoke
   ◈ .truth

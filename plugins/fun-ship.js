@@ -2,7 +2,7 @@ let toM = a => '@' + a.split('@')[0];
 
 function getRandomPercentage() {
     // Generate a random percentage between 1 and 100
-    return Math.floor(Math.random() * 100) + 1;
+    return Math.floor(Math.random() * 120) + 1;
 }
 
 function handler(m, { groupMetadata }) {

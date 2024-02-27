@@ -1,9 +1,15 @@
-import axios from 'axios'
 let handler = async(m, { conn, usedPrefix, command }) => {
-let res = (await axios.get(`https://shizoapi.onrender.com/api/devotional/ganpati?apikey=shizo`)).data  
-let url = await res[Math.floor(res.length * Math.random())]
-conn.sendFile(m.chat, url, 'error.jpg', `*Messi*`, m)} 
-//conn.sendButton(m.chat, "*Messi*", author, url, [['⚽ NEXT ⚽', `${usedPrefix + command}`]], m)}
+function showGanashPhoto() {
+    var imgSrc = https://shizoapi.onrender.com/api/devotional/ganpati?apikey=shizo";
+    var imgAlt = "GanpatiBappa";
+    var img = document.createElement("img");
+    img.src = imgSrc;
+    img.alt = imgAlt;
+    document.body.appendChild(img);
+}
+
+// Usage: Type ".messi" to display the Messi photo
+
 handler.help = ['ganash']
 handler.tags = ['img']
 handler.command = /^(ganash)$/i

@@ -9,7 +9,7 @@ let av = `./Assets/mp3/${pickRandom(["Bot", "Bot1", "Bot2", "Bot3", "Bot4", "Bot
 
 m.reply( `Hello ${taguser} Nice To meet you ❤️`)
 conn.sendFile(m.chat, av, 'audio.mp3', null, m, true, { type: 'audioMessage', ptt: true })
-} 
+ 
 
 handler.customPrefix = /^(bot|samrat|samridhya|saraswati|Priya)$/i
 handler.command = new RegExp

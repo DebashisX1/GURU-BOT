@@ -9,7 +9,7 @@ let handler = async (m, { conn }) => {
     conn.sendFile(m.chat, av, 'audio.mp3', null, m, true, { type: 'audioMessage', ptt: true });
 }
 
-handler.customPrefix = /^(Good Morning)$/i;
+handler.customPrefix = /^(Morning)$/i;
 handler.command = new RegExp;
 
 export default handler;

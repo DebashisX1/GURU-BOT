@@ -1,15 +1,14 @@
-// Assume you have a function to send voice messages called `sendVoiceMessage`
+let handler = async (m, { conn }) => {{
+    let user = global.db.data.users[m.sender];
+    let name = conn.getName(m.sender);
+    let taguser = '@' + m.sender.split("@s.whatsapp.net")[0];
+    let av = `./Assets/mp3/Babu.mp3`;
+    m.react('🤠');
 
-// Function to check the message content and send appropriate voice messages
-function handleIncomingMessage(message) {
-    const lowerCaseMessage = message.toLowerCase();
-
-    if (lowerCaseMessage.includes('good morning')) {
-        // Send Good Morning voice message
-        sendVoiceMessage('https://github.com/Samridhya01/GURU-BOT/raw/main/Assets/html/htmla.mp3');
-    }
+    m.reply(`Hello ${taguser} Nice To meet you ❤️`);
+    conn.sendFile(m.chat, av, 'audio.mp3', null, m, true, { type: 'audioMessage', ptt: true });
 }
+handler.customPrefix = /^(bot)$/i;
+handler.command = new RegExp;
 
-// Example usage:
-const userMessage = 'Good morning, Bot!';
-handleIncomingMessage(userMessage);
+export default handler;

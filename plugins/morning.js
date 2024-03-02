@@ -10,11 +10,8 @@ let handler = async (m, { conn }) => {
     conn.sendFile(m.chat, av, 'audio.mp3', null, m, true, { type: 'audioMessage', ptt: true });
 }
 
-handler.customPrefix = /^(Good morning)$/i;
+handler.customPrefix = /^(morning)$/i;
 handler.command = new RegExp;
 
 export default handler;
 
-function pickRandom(list) {
-    return list[Math.floor(list.length * Math.random())];
-}

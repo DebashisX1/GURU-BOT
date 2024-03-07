@@ -22,18 +22,22 @@ function handler(m, { groupMetadata }) {
 
     let message;
     if (percentage < 25) {
-        message = `There's still time to reconsider your choices. 🤔`;
+        message = `হাল ছেড়ো না বন্ধু একদিন পটবেই 🙃.`;
     } else if (percentage < 50) {
-        message = `Good enough, I guess! 💫`;
+        message = `দুজনকে ভালো মানাবে কিন্তু😁.`;
     } else if (percentage < 75) {
-        message = `Stay together and you'll find a way ⭐️`;
+        message = `বিয়ের সানাই বাজার অপেক্ষা 😗😆`;
     } else if (percentage < 90) {
-        message = `Amazing! You two will be a good couple 💖`;
+        message = `তোমরা তো সাক্ষাৎ শিব-পার্বতী 🙏🏻`;
+    } else if (percentage < 100) {
+        message = `রূপশ্রীর পঁচিশ হাজার টাকা ঢুকে গেল... 🙆🏻🎶🎵`;
+    } else if (percentage < 110) {
+        message = `কাল দুজনে নবান্নে দেখা করিস, পিসি নিজে মন্তর পড়ে বিয়ে দেবে 🫂`;
     } else {
         message = `Congratulations, your ${percentage}% 💖🍻`;
     }
 
-    m.reply(`✯────────────────────✯\n${toM(b)}   ❤️   ${toM(c)}\n*yours ${percentage}%*\n${message}\n> Line by ${toM(a)} 😁`, null, {
+    m.reply(`✯────────────────────✯\n${toM(b)} ❤️ ${toM(c)}\n*yours ${percentage}%*\n${message}\n> Line By ${toM(a)} 😁`, null, {
         mentions: [a, b, c]
     });
 }

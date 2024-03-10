@@ -1,14 +1,28 @@
+let toM = a => '@' + a.split('@')[0];
+
 function getRandomPercentage() {
     // Generate a random percentage between 1 and 100
-    return Math.floor(Math.random() * 100) + 1;
+    return Math.floor(Math.random() * 120) + 1;
 }
 
-m.reply(`${getRandomPercentage()}% 💖`);
+function handler(m, { groupMetadata }) {
+    let ps = groupMetadata.participants.map(v => v.id);
+    let a = m.sender;
+    let b;
+    do {
+        b = ps[Math.floor(Math.random() * ps.length)]; // Select a random participant
+    } while (b === a);
 
-handler.help = ['smartcheck'];
+    const percentage = getRandomPercentage();
+
+    m.reply(`your ${percentage}% 😎`, null, {
+        mentions: [a, b]
+    });
+}
+
+handler.help = ['smart @user'];
 handler.tags = ['fun'];
-handler.command = ['smartcheck'];
+handler.command = ['smart'];
 handler.group = true;
 
 export default handler;
-

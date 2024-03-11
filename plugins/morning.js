@@ -5,7 +5,7 @@ const handler = async (m, { conn }) => {
     await conn.sendFile(m.chat, av, 'audio.mp3', null, m, true, { type: 'audioMessage', ptt: true });
 }
 
-handler.customPrefix = /^(gm)$/i;
+handler.customPrefix = /^(Morning)$/i;
 handler.command = new RegExp;
 
 module.exports = handler;

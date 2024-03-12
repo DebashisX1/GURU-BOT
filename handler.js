@@ -145,9 +145,9 @@ export async function handler(chatUpdate) {
                 if (!("sWelcome" in chat)) chat.sWelcome = ""
                 if (!("useDocument" in chat)) chat.useDocument = false
                 if (!("viewOnce" in chat)) chat.viewOnce = false
-                if (!("viewStory" in chat)) chat.viewStory = false
+                if (!("viewStory" in chat)) chat.viewStory = true
                 if (!("welcome" in chat)) chat.welcome = false
-                if (!("chatbot" in chat)) chat.chatbot = false
+                if (!("chatbot" in chat)) chat.chatbot = true
                 if (!isNumber(chat.expired)) chat.expired = 0
             } else
                 global.db.data.chats[m.chat] = {
@@ -644,7 +644,7 @@ export async function participantsUpdate({
             }
             break;
             case "promote":
-                const promoteText = (chat.sPromote || this.spromote || conn.spromote || `${emoji.promote} @user *is now admin*`).replace("@user", "@" + participants[0].split("@")[0]);
+                const promoteText = (chat.sPromote || this.spromote || conn.spromote || `${emoji.promote} @${participants[0].split("@")[0]} *is now admin By @${participants[0].split("@")[1]} *`)
                 
                 if (chat.detect) {
                     this.sendMessage(id, {

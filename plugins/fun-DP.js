@@ -8,8 +8,8 @@ let handler = async (m, { conn }) => {
   }), 'samrat.jpg', `DP of ${name}/n/n I know you see the photo everyday at 3:00 AM 😇`, m)
 }
 
-handler.help = ['DP @user']
+handler.help = ['upp @user']
 handler.tags = ['fun']
-handler.command = ['DP'] 
+handler.command = ['upp'] 
 
 export default handler

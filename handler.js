@@ -654,11 +654,11 @@ export async function participantsUpdate({
                 }
                 break;
             case "demote":
-                const demoteText = (chat.sDemote || this.sdemote || conn.sdemote || `${emoji.demote} @user *demoted from admin*`).replace("@user", "@" + participants[0].split("@")[0]);
+                const demoteText = (chat.sDemote || this.sdemote || conn.sdemote || `${emoji.demote} @${participant.split`@`[0]} *demoted from admin*`)
                 
                 if (chat.detect) {
                     this.sendMessage(id, {
-                        text: demoteText.trim(),
+                        text: demoteText.trim(@${participant.split`@`[0]}),
                         mentions: [participants[0]]
                     });
                 }

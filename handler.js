@@ -145,9 +145,9 @@ export async function handler(chatUpdate) {
                 if (!("sWelcome" in chat)) chat.sWelcome = ""
                 if (!("useDocument" in chat)) chat.useDocument = false
                 if (!("viewOnce" in chat)) chat.viewOnce = false
-                if (!("viewStory" in chat)) chat.viewStory = true
+                if (!("viewStory" in chat)) chat.viewStory = false
                 if (!("welcome" in chat)) chat.welcome = false
-                if (!("chatbot" in chat)) chat.chatbot = true
+                if (!("chatbot" in chat)) chat.chatbot = false
                 if (!isNumber(chat.expired)) chat.expired = 0
             } else
                 global.db.data.chats[m.chat] = {
@@ -576,10 +576,10 @@ export async function participantsUpdate({
                         contextInfo: {
                         mentionedJid: [user],
                         externalAdReply: {
-                        title: "ᴛʜᴇ ꜱᴀᴍʀᴀᴛ-ʙᴏᴛ",
+                        title: "ᴛʜᴇ ɢᴜʀᴜ-ʙᴏᴛ",
                         body: "welcome to Group",
                         thumbnailUrl: welcomeApiUrl,
-                        sourceUrl: 'https://chat.whatsapp.com/C4NU6KefgoLL9W8vpbhbEY',
+                        sourceUrl: 'https://chat.whatsapp.com/BFfD1C0mTDDDfVdKPkxRAA',
                         mediaType: 1,
                         renderLargerThumbnail: true
                         }}})
@@ -601,8 +601,8 @@ export async function participantsUpdate({
                   ppgp = await this.profilePictureUrl(id, 'image');
                 } catch (error) {
                   console.error(`Error retrieving profile picture: ${error}`);
-                  pp = 'https://i.imgur.com/JlvP4w2.jpeg'; // Assign default image URL
-                  ppgp = 'https://i.imgur.com/JlvP4w2.jpeg'; // Assign default image URL
+                  pp = 'https://i.imgur.com/8B4jwGq.jpeg'; // Assign default image URL
+                  ppgp = 'https://i.imgur.com/8B4jwGq.jpeg'; // Assign default image URL
                 } finally {
                   let text = (chat.sBye || this.bye || conn.bye || 'HELLO, @user')
                     .replace('@user', '@' + user.split('@')[0]);
@@ -629,10 +629,10 @@ export async function participantsUpdate({
                         contextInfo: {
                         mentionedJid: [user],
                         externalAdReply: {
-                        title: "𝕋ℍ𝔼 𝕊𝔸𝕄ℝ𝔸𝕋-𝔹𝕆𝕋",
+                        title: "ᴛʜᴇ ɢᴜʀᴜ-ʙᴏᴛ",
                         body: "Goodbye from  Group",
                         thumbnailUrl: leaveApiUrl,
-                        sourceUrl: 'https://chat.whatsapp.com/C4NU6KefgoLL9W8vpbhbEY',
+                        sourceUrl: 'https://chat.whatsapp.com/BFfD1C0mTDDDfVdKPkxRAA',
                         mediaType: 1,
                         renderLargerThumbnail: true
                         }}})
@@ -644,7 +644,7 @@ export async function participantsUpdate({
             }
             break;
             case "promote":
-                const promoteText = (chat.sPromote || this.spromote || conn.spromote || `${emoji.promote} @user *is now admin By *`).replace("@user", "@" + participants[0].split("@")[0]);
+                const promoteText = (chat.sPromote || this.spromote || conn.spromote || `${emoji.promote} @user *is now admin*`).replace("@user", "@" + participants[0].split("@")[0]);
                 
                 if (chat.detect) {
                     this.sendMessage(id, {
@@ -831,7 +831,7 @@ global.dfail = (type, m, conn) => {
 
     const msg = {
         owner: `*${emoji.owner} Owner's Query*\n
-    ${userTag} This command can only be used by the *Samrat*!`,
+    ${userTag} This command can only be used by the *Bot Owner*!`,
         moderator: `*${emoji.moderator} Moderator's Query*\n
     ${userTag} This command can only be used by *Moderators*!`,
         premium: `*${emoji.premium} Premium Query*\n

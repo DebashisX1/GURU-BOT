@@ -85,6 +85,9 @@ import {
   ◈ .dare
   ◈ .flirt
   ◈ .gay @user
+  ◈ .glass
+  ◈ .jail
+  ◈ .DP
   ◈ .pickupline
   ◈ .question
   ◈ .shayari

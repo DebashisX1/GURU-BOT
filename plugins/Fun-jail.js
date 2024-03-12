@@ -3,7 +3,7 @@ let handler = async (m, { conn }) => {
   let name = conn.getName(who)
   let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './Guru.jpg')
   conn.sendFile(m.chat,pp, 
-  ), 'pp', `partho ar pit chulkaba ${name}`, m)
+  , 'pp', `partho ar pit chulkaba ${name}`, m)
 }
 
 handler.help = ['jail @user']

@@ -644,7 +644,7 @@ export async function participantsUpdate({
             }
             break;
             case "promote":
-                const promoteText = (chat.sPromote || this.spromote || conn.spromote || `${emoji.promote} @${participants[0].split("@")[0]} *is now admin By @${participants[0].split("@")[1]} *`)
+                const promoteText = (chat.sPromote || this.spromote || conn.spromote || `${emoji.promote} @user *is now admin By *`).replace("@user", "@" + participants[0].split("@")[0]);
                 
                 if (chat.detect) {
                     this.sendMessage(id, {
@@ -654,11 +654,11 @@ export async function participantsUpdate({
                 }
                 break;
             case "demote":
-                const demoteText = (chat.sDemote || this.sdemote || conn.sdemote || `${emoji.demote} @${participant.split`@`[0]} *demoted from admin*`)
+                const demoteText = (chat.sDemote || this.sdemote || conn.sdemote || `${emoji.demote} @user *demoted from admin*`).replace("@user", "@" + ${participants[0].split("@")[0])};
                 
                 if (chat.detect) {
                     this.sendMessage(id, {
-                        text: demoteText.trim(@${participant.split`@`[0]}),
+                        text: demoteText.trim(),
                         mentions: [participants[0]]
                     });
                 }

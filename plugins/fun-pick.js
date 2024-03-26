@@ -6,7 +6,7 @@ function handler(m, { groupMetadata, text }) {
     do {
         b = ps[Math.floor(Math.random() * ps.length)]; // Select a random participant
     } while (b === a);
-m.reply(`The most ${text} is ${toM(b)}`, null, {
+m.reply(`🗣 The Most *${text}* Public Is ${toM(b)}`, null, {
         mentions: [a, b]
 });
 }

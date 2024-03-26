@@ -1,0 +1,27 @@
+let toM = a => '@' + a.split('@')[0];
+
+function handler(m, { groupMetadata, text }) {
+    // Check if groupMetadata and text are provided and valid
+    if (!groupMetadata || !text) {
+        console.error('Invalid parameters: groupMetadata or text is missing.');
+        return;
+    }
+
+    let ps = groupMetadata.participants.map(v => v.id);
+    let a = m.sender;
+    let b;
+    do {
+        b = ps[Math.floor(Math.random() * ps.length)]; // Select a random participant
+    } while (b === a);
+
+    m.reply(`The most ${text} is ${toM(b)}`, null, {
+        mentions: [a, b]
+    });
+}
+
+handler.help = ['pick2'];
+handler.tags = ['fun'];
+handler.command = ['pick2'];
+handler.group = true;
+
+export default handler;

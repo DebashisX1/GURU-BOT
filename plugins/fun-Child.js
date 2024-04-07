@@ -17,7 +17,7 @@ function handler(m, { groupMetadata }) {
 
     const percentage = getRandomPercentage();
 
-    m.reply(`${name} have ${percentage} child, father/mother is ${toM(b)} 😎`, null, {
+    m.reply(` ```${name} have ${percentage} child, father/mother is ${toM(b)} 😎``` `, null, {
         mentions: [b]
     });
 }

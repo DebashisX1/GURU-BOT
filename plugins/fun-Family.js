@@ -1,4 +1,7 @@
-let toM = a => '@' + a.split('@')[0];
+let toM = a => {
+    if (!a) return ""; // Defensive programming: return empty string if `a` is undefined
+    return '@' + a.split('@')[0];
+};
 
 function getRandomPercentage() {
     // Generate a random percentage between 1 and 100
@@ -8,6 +11,8 @@ function getRandomPercentage() {
 function handler(m, { groupMetadata }) {
     let ps = groupMetadata.participants.map(v => v.id);
     let a = m.sender;
+    if (!a) return; // Defensive programming: exit function if `a` is undefined
+    
     let b, c, d, e, f; // Declare additional variables
     
     // Select random participants until it's not the same as a
@@ -28,7 +33,7 @@ function handler(m, { groupMetadata }) {
     
     const percentage = getRandomPercentage();
 
-    m.reply(`গোপন সূত্র থেকে পাওয়া ${name} চৌদ্দগুষ্টির বিবরণ:\n
+    m.reply(`গোপন সূত্র থেকে পাওয়া ${toM(a)} চৌদ্দগুষ্টির বিবরণ:\n
 বাবা: lord Samridhya 👨\n
 মা/2nd বাবা:‌- ${toM(b)}🫃\n
 ভাই/বোন:- ${toM(c)}💆\n
@@ -38,7 +43,7 @@ Ex:- ${toM(d)} 🤡\n
 বাড়িওয়ালা- ${toM(e)} 🏟\n
 শশুর/শাশুরি:- ${toM(f)} 🧚\n
 Total Childs: ${percentage}\n
-${name} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`, null, {
+${toM(a)} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`, null, {
         mentions: [a, b, c, d, e, f] // Include all variables in mentions
     });
 }

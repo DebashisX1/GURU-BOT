@@ -9,20 +9,22 @@ function handler(m, { groupMetadata }) {
     let ps = groupMetadata.participants.map(v => v.id);
     let a = m.sender;
     let b;
+    let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+  let name = conn.getName(who)
     do {
         b = ps[Math.floor(Math.random() * ps.length)]; // Select a random participant
     } while (b === a);
 
     const percentage = getRandomPercentage();
 
-    m.reply(`your ${percentage}% 😎`, null, {
-        mentions: [a, b]
+    m.reply(`${name} have ${percentage} child, father/mother is ${toM(b)} 😎`, null, {
+        mentions: [b]
     });
 }
 
-handler.help = ['smart @user'];
+handler.help = ['Child @user'];
 handler.tags = ['fun'];
-handler.command = ['smart'];
+handler.command = ['child'];
 handler.group = true;
 
 export default handler;

@@ -29,6 +29,7 @@ async function handler(m, { conn, groupMetadata }) {
     // Assign values to e and f
     e = ps[Math.floor(Math.random() * ps.length)];
     f = ps[Math.floor(Math.random() * ps.length)];
+    g = ps[Math.floor(Math.random() * ps.length)];
 
     const percentage = getRandomPercentage();
 
@@ -43,7 +44,8 @@ async function handler(m, { conn, groupMetadata }) {
     Ex:- ${toM(d)} 🤡
     বাড়িওয়ালা- ${toM(e)} 🏟
     শশুর/শাশুরি:- ${toM(f)} 🧚
-    Total Childs: ${percentage}
+    ক্রাশ:- ${toM(g)} 
+    Total বাচ্চা: ${percentage}
     ${name} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`, null, mentions: [a, b, c, d, e, f] , m);
 }
 

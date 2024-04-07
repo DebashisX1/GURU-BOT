@@ -10,6 +10,8 @@ function getRandomPercentage() {
 
 function handler(m, { groupMetadata }) {
     let ps = groupMetadata.participants.map(v => v.id);
+    let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+  let name = conn.getName(who)
     let a = m.sender;
     if (!a) return; // Defensive programming: exit function if `a` is undefined
     
@@ -33,7 +35,7 @@ function handler(m, { groupMetadata }) {
     
     const percentage = getRandomPercentage();
 
-    m.reply(`গোপন সূত্র থেকে পাওয়া ${toM(a)} চৌদ্দগুষ্টির বিবরণ:\n
+    m.reply(`গোপন সূত্র থেকে পাওয়া ${name} চৌদ্দগুষ্টির বিবরণ:\n
 বাবা: lord Samridhya 👨\n
 মা/2nd বাবা:‌- ${toM(b)}🫃\n
 ভাই/বোন:- ${toM(c)}💆\n
@@ -43,7 +45,7 @@ Ex:- ${toM(d)} 🤡\n
 বাড়িওয়ালা- ${toM(e)} 🏟\n
 শশুর/শাশুরি:- ${toM(f)} 🧚\n
 Total Childs: ${percentage}\n
-${toM(a)} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`, null, {
+${name} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`, null, {
         mentions: [a, b, c, d, e, f] // Include all variables in mentions
     });
 }

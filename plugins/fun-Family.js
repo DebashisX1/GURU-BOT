@@ -10,7 +10,7 @@ async function handler(m, { conn, groupMetadata }) {
     let a = m.sender;
     if (!a) return; // Defensive programming: exit function if `a` is undefined
 
-    let b, c, d, e, f; // Declare additional variables
+    let b, c, d, e, f, g; // Declare additional variables
 
     // Select random participants until it's not the same as a
     do {
@@ -26,16 +26,13 @@ async function handler(m, { conn, groupMetadata }) {
         d = ps[Math.floor(Math.random() * ps.length)];
     } while (d === a || d === b || d === c);
 
-    // Assign values to e and f
+    // Assign values to e, f, and g
     e = ps[Math.floor(Math.random() * ps.length)];
     f = ps[Math.floor(Math.random() * ps.length)];
     g = ps[Math.floor(Math.random() * ps.length)];
 
     const percentage = getRandomPercentage();
-
-    conn.sendFile(m.chat, global.API('https://some-random-api.com', '/canvas/misc/simpcard', {
-        avatar: await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'),
-    }), 'error.png', `গোপন সূত্র থেকে পাওয়া ${name} চৌদ্দগুষ্টির বিবরণ:
+    let text = `গোপন সূত্র থেকে পাওয়া ${name} চৌদ্দগুষ্টির বিবরণ:
     বাবা: lord Samridhya 👨
     মা/2nd বাবা:‌- ${toM(b)}🫃
     ভাই/বোন:- ${toM(c)}💆
@@ -46,7 +43,11 @@ async function handler(m, { conn, groupMetadata }) {
     শশুর/শাশুরি:- ${toM(f)} 🧚
     ক্রাশ:- ${toM(g)} 
     Total বাচ্চা: ${percentage}
-    ${name} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`, null, mentions: [a, b, c, d, e, f] , m);
+    ${name} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`;
+
+    conn.sendFile(m.chat, global.API('https://some-random-api.com', '/canvas/misc/simpcard', {
+        avatar: await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'),
+    }), 'error.png', text, null, { mentions: [a, b, c, d, e, f] }, m);
 }
 
 function getRandomPercentage() {

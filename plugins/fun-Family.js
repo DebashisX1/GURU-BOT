@@ -1,0 +1,54 @@
+let toM = a => '@' + a.split('@')[0];
+
+function getRandomPercentage() {
+    // Generate a random percentage between 1 and 100
+    return Math.floor(Math.random() * 120) + 1;
+}
+
+function handler(m, { groupMetadata }) {
+    let ps = groupMetadata.participants.map(v => v.id);
+  let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+  let name = conn.getName(who)
+    let a = m.sender;
+    let b, c, d, e, f, g, h, i; // Declare additional variables
+    
+    // Select random participants until it's not the same as a
+    do {
+        b = ps[Math.floor(Math.random() * ps.length)];
+    } while (b === a);
+    
+    // Select additional random participants until they are not the same as a or each other
+    do {
+        c = ps[Math.floor(Math.random() * ps.length)];
+    } while (c === a || c === b);
+    
+    do {
+        d = ps[Math.floor(Math.random() * ps.length)];
+    } while (d === a || d === b || d === c);
+    
+    // Repeat for e, f, g, h, and i
+    
+    const percentage = getRandomPercentage();
+
+    m.reply(`গোপন সূত্র থেকে পাওয়া ${name} চৌদ্দগুষ্টির বিবরণ:-//n
+বাবা:lord Samridhya 👨//n
+মা/2nd বাবা:‌- ${toM(b)}🫃//n
+ভাই/বোন:- ${toM(c)}💆//n
+বর/বউ:- ${toM(a)}👫//n
+Bf/Gf:- ${toM(a)} 👩‍❤‍💋‍👨//n
+Ex:- ${toM(d)} 🤡//n
+বাড়িওয়ালা- ${toM(e)} 🏟//n
+শশুর/শাশুরি:- ${toM(f)} 🧚//n
+Total Childs: ${percentage}
+//n
+${name} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`, null, {
+        mentions: [a, b, c, d, e, f] // Include all variables in mentions
+    });
+}
+
+handler.help = ['family @user'];
+handler.tags = ['fun'];
+handler.command = ['family'];
+handler.group = true;
+
+export default handler;

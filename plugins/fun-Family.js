@@ -31,7 +31,9 @@ function handler(m, { groupMetadata }) {
         d = ps[Math.floor(Math.random() * ps.length)];
     } while (d === a || d === b || d === c);
     
-    // Repeat for e and f
+    // Assign values to e and f
+    e = ps[Math.floor(Math.random() * ps.length)];
+    f = ps[Math.floor(Math.random() * ps.length)];
     
     const percentage = getRandomPercentage();
 

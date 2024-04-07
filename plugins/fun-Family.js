@@ -47,8 +47,7 @@ async function handler(m, { conn, groupMetadata }) {
 
     conn.sendFile(m.chat, global.API('https://some-random-api.com', '/canvas/misc/simpcard', {
         avatar: await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'),
-    }), 'error.png', text, null, { mentions: [a, b, c, d, e, f] }, m);
-}
+    }), 'error.png', text, null, { mentions: [a, b, c, d, e, f] })}
 
 function getRandomPercentage() {
     // Generate a random percentage between 1 and 100

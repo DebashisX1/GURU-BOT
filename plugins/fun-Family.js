@@ -31,26 +31,27 @@ function handler(m, { groupMetadata }) {
         d = ps[Math.floor(Math.random() * ps.length)];
     } while (d === a || d === b || d === c);
     
-    // Assign values to e, f, and g
+    // Assign values to e, f, and g and h
     e = ps[Math.floor(Math.random() * ps.length)];
     f = ps[Math.floor(Math.random() * ps.length)];
     g = ps[Math.floor(Math.random() * ps.length)];
+    h = ps[Math.floor(Math.random() * ps.length)];
     
     const percentage = getRandomPercentage();
 
     m.reply(`*গোপন সূত্র থেকে পাওয়া ${name} চৌদ্দগুষ্টির বিবরণ:*\n
-বাবা: lord Samridhya 👨\n
-মা/2nd বাবা:‌- ${toM(b)}🫃\n
-ভাই/বোন:- ${toM(c)}💆\n
-বর/বউ:- ${toM(a)}👫\n
-Bf/Gf:- ${toM(a)} 👩‍❤‍💋‍👨\n
-ক্রাশ :- ${toM(g)} 🙈\n 
-Ex:- ${toM(d)} 🤡\n
-বাড়িওয়ালা- ${toM(e)} 🏟\n
-শশুর/শাশুরি:- ${toM(f)} 🧚\n
-Total বাচ্চা: ${percentage}\n
+*বাবা:* lord Samridhya 👨\n
+*মা/2nd বাবা:‌-* ${toM(b)}🫃\n
+*ভাই/বোন:-* ${toM(c)}💆\n
+*বর/বউ:-* ${toM(h)}👫\n
+*Bf/Gf:-* ${toM(a)} 👩‍❤‍💋‍👨\n
+*ক্রাশ :-* ${toM(g)} 🙈\n 
+*Ex:-* ${toM(d)} 🤡\n
+*বাড়িওয়ালা-* ${toM(e)} 🏟\n
+*শশুর/শাশুরি:-* ${toM(f)} 🧚\n
+*Total বাচ্চা:* ${percentage}\n
 @${name} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`, null, {
-        mentions: [a, b, c, d, e, f, g] // Include all variables in mentions
+        mentions: [a, b, c, d, e, f, g, h] // Include all variables in mentions
     });
 }
 

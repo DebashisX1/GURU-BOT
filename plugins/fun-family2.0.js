@@ -1,16 +1,23 @@
+let toM = a => {
+    if (!a) return ""; // Defensive programming: return empty string if `a` is undefined
+    return '@' + a.split('@')[0];
+};
+
 async function handler(m, { conn, groupMetadata }) {
     let ps = groupMetadata.participants.map(v => v.id);
     let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe() ? conn.user.jid : m.sender;
     let name = await conn.getName(who);
     let a = m.sender;
-    if (!a) return; 
+    if (!a) return; // Defensive programming: exit function if `a` is undefined
 
-    let b, c, d, e, f; 
+    let b, c, d, e, f; // Declare additional variables
 
+    // Select random participants until it's not the same as a
     do {
         b = ps[Math.floor(Math.random() * ps.length)];
     } while (b === a);
 
+    // Select additional random participants until they are not the same as a or each other
     do {
         c = ps[Math.floor(Math.random() * ps.length)];
     } while (c === a || c === b);
@@ -23,10 +30,11 @@ async function handler(m, { conn, groupMetadata }) {
     e = ps[Math.floor(Math.random() * ps.length)];
     f = ps[Math.floor(Math.random() * ps.length)];
 
+    const percentage = getRandomPercentage();
 
-    const mentions = [a, b, c, d, e, f].map(id => ({ jid: id, hide: `false` }));
-
-    conn.sendMessage(m.chat, `গোপন সূত্র থেকে পাওয়া ${name} চৌদ্দগুষ্টির বিবরণ:
+    conn.sendFile(m.chat, global.API('https://some-random-api.com', '/canvas/misc/simpcard', {
+        avatar: await conn.profilePictureUrl(who, 'image').catch(_ => 'https://imgur.com/Uzmskkn.jpg'),
+    }), 'error.png', `গোপন সূত্র থেকে পাওয়া ${name} চৌদ্দগুষ্টির বিবরণ:
     বাবা: lord Samridhya 👨
     মা/2nd বাবা:‌- ${toM(b)}🫃
     ভাই/বোন:- ${toM(c)}💆
@@ -35,14 +43,15 @@ async function handler(m, { conn, groupMetadata }) {
     Ex:- ${toM(d)} 🤡
     বাড়িওয়ালা- ${toM(e)} 🏟
     শশুর/শাশুরি:- ${toM(f)} 🧚
-    Total Childs: ∞
-    ${name} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`, MessageType.text, { mentions });
+    Total Childs: ${percentage}
+    ${name} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`, null, {
+        mentions: [a, b, c, d, e, f] // Include all variables in mentions
+    }, m);
+}
 
-    const simpcard = await conn.getFileBuffer(global.API('https://some-random-api.com', '/canvas/misc/simpcard', {
-        avatar: await conn.getProfilePicture(who).catch(_ => 'https://imgur.com/Uzmskkn.jpg'),
-    }));
-    
-    conn.sendMessage(m.chat, simpcard, MessageType.image, { quoted: m });
+function getRandomPercentage() {
+    // Generate a random percentage between 1 and 100
+    return Math.floor(Math.random() * 12) + 1;
 }
 
 handler.help = ['family2 @user'];

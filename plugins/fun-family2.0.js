@@ -1,3 +1,7 @@
+function getRandomPercentage() {
+    return Math.floor(Math.random() * 12); // Generates a random number between 0 and 100
+}
+
 async function handler(m, { conn, groupMetadata }) {
     let ps = groupMetadata.participants.map(v => v.id);
     let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe() ? conn.user.jid : m.sender;
@@ -42,7 +46,7 @@ async function handler(m, { conn, groupMetadata }) {
     const simpcard = await conn.getFileBuffer(global.API('https://some-random-api.com', '/canvas/misc/simpcard', {
         avatar: await conn.getProfilePicture(who).catch(_ => 'https://imgur.com/Uzmskkn.jpg'),
     }));
-    
+
     conn.sendMessage(m.chat, simpcard, MessageType.image, { quoted: m });
 }
 

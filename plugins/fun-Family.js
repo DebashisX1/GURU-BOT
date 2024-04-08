@@ -32,7 +32,7 @@ function handler(m, { groupMetadata }) {
     // Assign values to e, f, and g
     e = ps[Math.floor(Math.random() * ps.length)];
     f = ps[Math.floor(Math.random() * ps.length)];
-    g = ps[Math.floor(Math.random() * ps.length)];
+    g = ps[Math.floor(Math.random() * ps.length)]; // Assign a value to g
     
     const percentage = getRandomPercentage();
 
@@ -42,13 +42,13 @@ function handler(m, { groupMetadata }) {
 ভাই/বোন:- ${toM(c)}💆\n
 বর/বউ:- ${toM(a)}👫\n
 Bf/Gf:- ${toM(a)} 👩‍❤‍💋‍👨\n
-ক্রাশ :- ${toM(g)} \n
+ক্রাশ :- ${toM(g)} // This line is causing the error
 Ex:- ${toM(d)} 🤡\n
 বাড়িওয়ালা- ${toM(e)} 🏟\n
 শশুর/শাশুরি:- ${toM(f)} 🧚\n
 Total Childs: ${percentage}\n
 ${toM(a)} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`, null, {
-        mentions: [a, b, c, d, e, f, g] // Include all variables in mentions
+        mentions: [a, b, c, d, e, f] // Include all variables in mentions
     });
 }
 

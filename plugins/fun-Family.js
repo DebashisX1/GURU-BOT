@@ -29,7 +29,7 @@ function handler(m, { groupMetadata }) {
         d = ps[Math.floor(Math.random() * ps.length)];
     } while (d === a || d === b || d === c);
     
-    // Assign values to e, f, and g
+    // Assign values to e and f
     e = ps[Math.floor(Math.random() * ps.length)];
     f = ps[Math.floor(Math.random() * ps.length)];
     

@@ -5,17 +5,17 @@ let toM = a => {
 
 function getRandomPercentage() {
     // Generate a random percentage between 1 and 100
-    return Math.floor(Math.random() * 12) + 1;
+    return Math.floor(Math.random() * 100) + 1;
 }
 
 function handler(m, { groupMetadata }) {
-    let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-  let name = conn.getName(who)
+    let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
+    let name = conn.getName(who);
     let ps = groupMetadata.participants.map(v => v.id);
     let a = m.sender;
     if (!a) return; // Defensive programming: exit function if `a` is undefined
     
-    let b, c, d, e, f, g; // Declare additional variables
+    let b, c, d, e, f, g, h; // Declare additional variables
     
     // Select random participants until it's not the same as a
     do {
@@ -35,6 +35,11 @@ function handler(m, { groupMetadata }) {
     e = ps[Math.floor(Math.random() * ps.length)];
     f = ps[Math.floor(Math.random() * ps.length)];
     g = ps[Math.floor(Math.random() * ps.length)];
+
+    // Select a random participant until it's not the same as a or previously selected participants
+    do {
+        h = ps[Math.floor(Math.random() * ps.length)];
+    } while (h === a || h === b || h === c || h === d || h === e || h === f || h === g);
     
     const percentage = getRandomPercentage();
 

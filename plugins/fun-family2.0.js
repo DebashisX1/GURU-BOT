@@ -1,5 +1,9 @@
 function getRandomPercentage() {
-    return Math.floor(Math.random() * 12); // Generates a random number between 0 and 100
+    return Math.floor(Math.random() * 101); // Generates a random number between 0 and 100
+}
+
+async function toM(id, conn) {
+    return await conn.getName(id);
 }
 
 async function handler(m, { conn, groupMetadata }) {
@@ -33,13 +37,13 @@ async function handler(m, { conn, groupMetadata }) {
 
     conn.sendMessage(m.chat, `গোপন সূত্র থেকে পাওয়া ${name} চৌদ্দগুষ্টির বিবরণ:
     বাবা: lord Samridhya 👨
-    মা/2nd বাবা:‌- ${toM(b)}🫃
-    ভাই/বোন:- ${toM(c)}💆
-    বর/বউ:- ${toM(a)}👫
-    Bf/Gf:- ${toM(a)} 👩‍❤‍💋‍👨
-    Ex:- ${toM(d)} 🤡
-    বাড়িওয়ালা- ${toM(e)} 🏟
-    শশুর/শাশুরি:- ${toM(f)} 🧚
+    মা/2nd বাবা:‌- ${await toM(b, conn)}🫃
+    ভাই/বোন:- ${await toM(c, conn)}💆
+    বর/বউ:- ${await toM(a, conn)}👫
+    Bf/Gf:- ${await toM(a, conn)} 👩‍❤‍💋‍👨
+    Ex:- ${await toM(d, conn)} 🤡
+    বাড়িওয়ালা- ${await toM(e, conn)} 🏟
+    শশুর/শাশুরি:- ${await toM(f, conn)} 🧚
     Total Childs: ${percentage}
     ${name} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`, MessageType.text, { mentions });
 

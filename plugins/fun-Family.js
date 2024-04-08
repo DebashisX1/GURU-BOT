@@ -31,11 +31,10 @@ function handler(m, { groupMetadata }) {
         d = ps[Math.floor(Math.random() * ps.length)];
     } while (d === a || d === b || d === c);
     
-    // Assign values to e, f, and g and h
+    // Assign values to e, f, and g
     e = ps[Math.floor(Math.random() * ps.length)];
     f = ps[Math.floor(Math.random() * ps.length)];
     g = ps[Math.floor(Math.random() * ps.length)];
-    h = ps[Math.floor(Math.random() * ps.length)];
     
     const percentage = getRandomPercentage();
 

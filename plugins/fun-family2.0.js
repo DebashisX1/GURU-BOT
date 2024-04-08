@@ -6,7 +6,10 @@ async function handler(m, { conn, groupMetadata }) {
     if (!a) return; 
 
     let b, c, d, e, f; 
-
+function getRandomPercentage() {
+    // Generate a random percentage between 1 and 100
+    return Math.floor(Math.random() * 100) + 1;
+}
     do {
         b = ps[Math.floor(Math.random() * ps.length)];
     } while (b === a);

@@ -23,7 +23,6 @@ async function handler(m, { conn, groupMetadata }) {
     e = ps[Math.floor(Math.random() * ps.length)];
     f = ps[Math.floor(Math.random() * ps.length)];
 
-    const percentage = getRandomPercentage();
 
     const mentions = [a, b, c, d, e, f].map(id => ({ jid: id, hide: `false` }));
 
@@ -36,7 +35,7 @@ async function handler(m, { conn, groupMetadata }) {
     Ex:- ${toM(d)} 🤡
     বাড়িওয়ালা- ${toM(e)} 🏟
     শশুর/শাশুরি:- ${toM(f)} 🧚
-    Total Childs: ${percentage}
+    Total Childs: ∞
     ${name} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`, MessageType.text, { mentions });
 
     const simpcard = await conn.getFileBuffer(global.API('https://some-random-api.com', '/canvas/misc/simpcard', {
@@ -45,3 +44,10 @@ async function handler(m, { conn, groupMetadata }) {
     
     conn.sendMessage(m.chat, simpcard, MessageType.image, { quoted: m });
 }
+
+handler.help = ['family2 @user'];
+handler.tags = ['fun'];
+handler.command = ['family2'];
+handler.group = true;
+
+export default handler;

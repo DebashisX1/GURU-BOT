@@ -32,8 +32,7 @@ async function handler(m, { conn, groupMetadata }) {
 
     const percentage = getRandomPercentage();
 
-    conn.sendFile(m.chat,forwardingScore: 256,
-      isForwarded: true, global.API('https://some-random-api.com', '/canvas/misc/simpcard', {
+    conn.sendFile(m.chat, global.API('https://some-random-api.com', '/canvas/misc/simpcard', {
         avatar: await conn.profilePictureUrl(who, 'image').catch(_ => 'https://imgur.com/Uzmskkn.jpg'),
     }), 'error.png', `গোপন সূত্র থেকে পাওয়া ${name} চৌদ্দগুষ্টির বিবরণ:
     বাবা: lord Samridhya 👨
@@ -45,7 +44,8 @@ async function handler(m, { conn, groupMetadata }) {
     বাড়িওয়ালা- ${toM(e)} 🏟
     শশুর/শাশুরি:- ${toM(f)} 🧚
     Total Childs: ${percentage}
-    ${name} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`, null, {
+    ${name} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`,forwardingScore: 256,
+      isForwarded: true, {
         mentions: [a, b, c, d, e, f] // Include all variables in mentions
     }, m);
 }

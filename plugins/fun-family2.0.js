@@ -45,3 +45,10 @@ async function handler(m, { conn, groupMetadata }) {
     
     conn.sendMessage(m.chat, simpcard, MessageType.image, { quoted: m });
 }
+
+handler.help = ['family2 @user'];
+handler.tags = ['fun'];
+handler.command = ['family2'];
+handler.group = true;
+
+export default handler;

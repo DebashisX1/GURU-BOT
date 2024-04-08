@@ -33,7 +33,7 @@ async function handler(m, { conn, groupMetadata }) {
     const percentage = getRandomPercentage();
 
     conn.sendFile(m.chat, global.API('https://some-random-api.com', '/canvas/misc/simpcard', {
-        avatar: await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'),
+        avatar: await conn.profilePictureUrl(who, 'image').catch(_ => 'https://imgur.com/Uzmskkn.jpg'),
     }), 'error.png', `গোপন সূত্র থেকে পাওয়া ${name} চৌদ্দগুষ্টির বিবরণ:
     বাবা: lord Samridhya 👨
     মা/2nd বাবা:‌- ${toM(b)}🫃

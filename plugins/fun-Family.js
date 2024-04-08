@@ -50,7 +50,7 @@ Ex:- ${toM(d)} 🤡\n
 শশুর/শাশুরি:- ${toM(f)} 🧚\n
 Total বাচ্চা: ${percentage}\n
 @${name} এই হল তোমার আসল পরিচয় কাল সবাইকে নিয়ে নবান্ন দেখা কর।🤸‍♂`, null, {
-        mentions: [a, b, c, d, e, f] // Include all variables in mentions
+        mentions: [a, b, c, d, e, f, g] // Include all variables in mentions
     });
 }
 

@@ -13,7 +13,7 @@ function handler(m, { groupMetadata }) {
     let a = m.sender;
     if (!a) return; // Defensive programming: exit function if `a` is undefined
     
-    let b, c, d, e, f, g; // Declare additional variables
+    let b, c, d, e, f; // Declare additional variables
     
     // Select random participants until it's not the same as a
     do {
